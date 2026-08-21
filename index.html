@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LP Test - GitHub Pages Demo</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --bg: #ffffff;
+      --bg-alt: #f9fafb;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+      --gradient: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+    }
+
+    .hero-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      background-color: rgba(79, 70, 229, 0.1);
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-alt);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 4rem 1.5rem;
+      background-color: var(--bg-alt);
+    }
+
+    .section-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* GitHub Pages Info Section */
+    .info-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .info-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .info-box h3 {
+      color: #166534;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    .info-box ol {
+      margin-left: 1.5rem;
+      color: #15803d;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">🚀 LP Test</a>
+      <ul class="nav-links">
+        <li><a href="#features">特徴</a></li>
+        <li><a href="#how-to">公開手順</a></li>
+        <li><a href="https://github.com/nagayoshiyusuke-dev/lp_test" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="badge">GitHub Pages テスト公開用</div>
+      <h1>魅力的なLPを<br>素早くデプロイ＆テスト</h1>
+      <p>このページは GitHub Pages 公開確認用のテストページです。HTML/CSS のみで動作し、即座にWeb上で確認できます。</p>
+      <div class="btn-group">
+        <a href="#features" class="btn btn-primary">機能を見る</a>
+        <a href="https://github.com/nagayoshiyusuke-dev/lp_test" target="_blank" rel="noopener" class="btn btn-secondary">リポジトリを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>特徴 & メリット</h2>
+        <p>軽量・高速でモダンなデザインテンプレート</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>超高速な表示速度</h3>
+          <p>ピュアHTML/CSSで構築されているため、ロード時間が短く快適なブラウジングを提供します。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>完全レスポンシブ</h3>
+          <p>PC、タブレット、スマートフォンなど、あらゆるデバイスの画面幅に自動で最適化されます。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛠️</div>
+          <h3>カスタマイズが容易</h3>
+          <p>CSS変数を使用したカラー管理により、ブランドに合わせたカラーパレットへの変更が簡単です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to setup Section -->
+  <section id="how-to" class="info-section">
+    <div class="info-box">
+      <h3>🎉 GitHub Pages 公開ステップ</h3>
+      <ol>
+        <li>このファイルを <code>git commit</code> & <code>git push</code> で GitHub にプッシュします。</li>
+        <li>リポジトリの <strong>Settings > Pages</strong> にアクセスします。</li>
+        <li><strong>Build and deployment > Source</strong> で <code>Deploy from a branch</code> を選択します。</li>
+        <li><strong>Branch</strong> で <code>main</code> ブランチの <code>/ (root)</code> を選んで <strong>Save</strong> をクリックします。</li>
+        <li>数十秒〜数分でページが公開されます！</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="section-container">
+      <p>© 2026 LP Test. Built for GitHub Pages.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
